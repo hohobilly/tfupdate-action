@@ -113,9 +113,9 @@ function run_tfupdate {
     echo "Creating a pull request: ${UPDATE_MESSAGE}"
     git commit -m "${UPDATE_MESSAGE}"
     if [ ${INPUT_REVIEWER} ]; then
-      hub pull-request -m "${UPDATE_MESSAGE}" -m "${PULL_REQUEST_BODY}" -b "${INPUT_BASE_BRANCH}" -l "${INPUT_LABEL}" -r "${INPUT_REVIEWER}" -p
+      git push origin HEAD && hub pull-request -m "${UPDATE_MESSAGE}" -m "${PULL_REQUEST_BODY}" -b "${INPUT_BASE_BRANCH}" -l "${INPUT_LABEL}" -r "${INPUT_REVIEWER}"
     else
-      hub pull-request -m "${UPDATE_MESSAGE}" -m "${PULL_REQUEST_BODY}" -b "${INPUT_BASE_BRANCH}" -l "${INPUT_LABEL}" -p -h "${CHECKOUT_BRANCH}"
+      git push origin HEAD && hub pull-request -m "${UPDATE_MESSAGE}" -m "${PULL_REQUEST_BODY}" -b "${INPUT_BASE_BRANCH}" -l "${INPUT_LABEL}"
     fi
   fi
 }
