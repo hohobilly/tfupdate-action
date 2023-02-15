@@ -85,6 +85,7 @@ function run_tfupdate {
   pwd
   ls -l .git/
   cat .git/config
+  git status
   git config --local user.email "${USER_EMAIL}"
   git config --local user.name "${USER_NAME}"
 
