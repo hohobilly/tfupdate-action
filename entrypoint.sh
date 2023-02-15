@@ -80,8 +80,10 @@ function run_tfupdate {
   fi
 
   # Set github config
-  echo "あ"
   git version
+  ls -l
+  pwd
+  ls -l /.git/
   git config --local user.email "${USER_EMAIL}"
   git config --local user.name "${USER_NAME}"
 
